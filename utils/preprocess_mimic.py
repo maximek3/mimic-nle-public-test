@@ -22,6 +22,8 @@ def extract_sentences(mimic_path, report_count=math.inf, patients=None):
     Returns:
         -list[dict]: content dictionary for each report
     """
+    
+    print("Starting sentence extraction...")
 
     report_counter = 0
 
@@ -37,15 +39,13 @@ def extract_sentences(mimic_path, report_count=math.inf, patients=None):
     # iterate through sub-folders p10-p19
     for subfolder in os.listdir(mimic_path):
         subfolder_path = os.path.join(mimic_path, subfolder)
-        if not os.path.isdir(subfolder_path): # for things like .DS_Store
-            print(f"{subfolder_path} is not a directory.")
+        if not os.path.isdir(subfolder_path):  # for things like .DS_Store
             continue
         for patient_ID in os.listdir(subfolder_path):
             if patients and patient_ID not in patients:
                 continue
             patient_path = os.path.join(subfolder_path, patient_ID)
-            if not os.path.isdir(patient_path):
-                print(f"{patient_path} is not a directory.")
+            if not os.path.isdir(patient_path): # for things like .DS_Store
                 continue
             for report_ID in os.listdir(patient_path):
                 report_path = os.path.join(patient_path, report_ID)
@@ -58,7 +58,7 @@ def extract_sentences(mimic_path, report_count=math.inf, patients=None):
                 report_counter += 1
 
                 sections, section_names, _ = section_text(report)
-                
+
                 # we only keep impression and finding section as "image captions"
                 relevant_sections = [
                     text.replace("\n", "")
@@ -75,13 +75,13 @@ def extract_sentences(mimic_path, report_count=math.inf, patients=None):
                 splitted_sentences = [
                     str(sent).lstrip(" ") for sent in splitted_sentences
                 ]
-                
+
                 # make each sentence an entry
                 for idx, sentence in enumerate(splitted_sentences):
                     sent_content = {}
                     report_ID = report_ID.replace(".txt", "")
                     sentence_ID = f"{report_ID}#{str(idx)}"
-                    
+
                     sent_content["sentence_ID"] = sentence_ID
                     sent_content["patient_ID"] = patient_ID
                     sent_content["report_ID"] = report_ID
@@ -95,5 +95,7 @@ def extract_sentences(mimic_path, report_count=math.inf, patients=None):
                 break
         if report_counter > report_count:
             break
+        
+    print("All sentences extracted!")
 
     return output
