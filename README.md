@@ -6,7 +6,7 @@ This repository contains the scripts to extract the MIMIC-NLE dataset from the M
 
 ## Extracting the dataset
 
-To run our extraction script, please first a create an environment by running `conda env create -f environment.yml`.
+To run our extraction script, please first a create an environment by running `conda env create -f environment.yml`. It is crucial that you use the same `spaCy` library, as otherwise there may be a discrepancy in the sentence splitting.
 
 After you downloaded MIMIC-CXR, get the path of the radiology reports, which should be given in the following structure: 
 
@@ -48,4 +48,17 @@ For each Natural Language Explanation (NLE), we get the following information:
 
 The diagnosis and evidence labels apply only specifically to the NLE at hand, while the `img_labels` apply to the whole image and may contain labels not referred to in the NLE. Dictionaries to uncode the one-hot encoding are provided in `encodings.py`.
 
+# Citation
 
+If you make use of MIMIC-NLE, please cite our paper:
+
+```
+@inproceedings{MICCAI-KECPPL-2022,
+  title = "Explaining Chest X-ray Pathologies in Natural Language",
+  author = "Maxime Kayser and Cornelius Emde and Oana Camburu and Guy Parsons and Bartlomiej Papiez and Thomas Lukasiewicz",
+  year = "2022",
+  booktitle = "Proceedings of the 25th International Conference on Medical Image Computing and Computer-Assisted Intervention, MICCAI 2022, Singapore, 18--22 September 2022",
+  month = "September",
+  publisher = "Springer",
+  series = "Lecture Notes in Computer Science (LNCS)",
+}
