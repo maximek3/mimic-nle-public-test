@@ -6,9 +6,9 @@ This repository contains the scripts to extract the MIMIC-NLE dataset from the M
 
 ## Extracting the dataset
 
-To run our extraction script, please first a create an environment by running `conda env create -f environment.yml`. It is crucial that you use the same `spaCy` library, as otherwise there may be a discrepancy in the sentence splitting.
+To run our extraction script, please first create an environment by running `conda env create -f environment.yml`. It is crucial that you use the same `spaCy` version, as otherwise there may be a discrepancy in the sentence splitting.
 
-After you downloaded MIMIC-CXR, get the path of the radiology reports, which should be given in the following structure: 
+After you finished downloading MIMIC-CXR, get the path to the radiology reports, which should be given in the following structure: 
 
 ```
 mimic_reports
