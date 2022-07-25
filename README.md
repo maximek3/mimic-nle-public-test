@@ -1,6 +1,6 @@
 # MIMIC-NLE Dataset
 
-This repository contains the scripts to extract the MIMIC-NLE dataset from the MIMIC-CXR radiology reports. In order to download MIMIC-CXR, head [here](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). More details on the dataset are provided in our MICCAI 2022 paper:
+This repository contains the scripts to extract the MIMIC-NLE dataset from the MIMIC-CXR radiology reports. In order to download MIMIC-CXR, head [here](https://physionet.org/content/mimic-cxr-jpg/2.0.0/). More details on MIMIC-NLE are provided in our MICCAI 2022 paper:
 
 *Explaining Chest X-ray Pathologies in Natural Language* ([arxiv](https://arxiv.org/abs/2207.04343))
 
