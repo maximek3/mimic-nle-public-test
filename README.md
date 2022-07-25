@@ -46,7 +46,7 @@ For each Natural Language Explanation (NLE), we get the following information:
 }
 ```
 
-The diagnosis and evidence labels apply only specifically to the NLE at hand, while the `img_labels` apply to the whole image and may contain labels not referred to in the NLE. Dictionaries to uncode the one-hot encoding are provided in `encodings.py`.
+The diagnosis and evidence labels apply only specifically to the NLE at hand, while the `img_labels` apply to the whole study and may contain labels not referred to in the NLE. Dictionaries to uncode the one-hot encodings are provided in `encodings.py`.
 
 # Citation
 
